@@ -1,0 +1,253 @@
+{
+  "register": [
+    {
+      "id": "d5c1"
+    },
+    {
+      "id": "eead",
+      "name": "anit Kumar",
+      "email": "amgiri1010@gmail.com",
+      "phone": "8267912231",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "78e5",
+      "name": "Amit Goswami",
+      "email": "amgiri1010@gmail.com",
+      "phone": "7017495652",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "ca0c",
+      "name": "ritik panchal",
+      "email": "agiri8710@gmail.com",
+      "phone": "8057404577",
+      "password": "12345678@Agg"
+    },
+    {
+      "id": "003e",
+      "name": "Prachi giri",
+      "email": "prachigiri005@gmail.com",
+      "phone": "8650599483",
+      "password": "6397212119@Ag"
+    },
+    {
+      "id": "dbb7",
+      "name": "Jane smith",
+      "email": "mary@gmail.com",
+      "phone": "7500310305",
+      "password": "1245678@Ag"
+    },
+    {
+      "id": "45f4",
+      "name": "amit kumar",
+      "email": "amit123@gmail.com",
+      "phone": "8267912231",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "2209",
+      "name": "deepa",
+      "email": "deepago2122@gmail.com",
+      "phone": "6397212119",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "2805",
+      "name": "LAKSHAY",
+      "email": "lakshya123@gmail.com",
+      "phone": "8650599483",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "e1b3",
+      "name": "Amit Goswami",
+      "email": "ammy45@gmail.com",
+      "phone": "7017495652",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "ad3a",
+      "name": "ritik",
+      "email": "ritik67@gmail.com",
+      "phone": "8267912231",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "006b",
+      "name": "Amit Goswami",
+      "email": "akki23@gmail.com",
+      "phone": "6397212119",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "123e",
+      "name": "Amitgnnnr",
+      "email": "dfrt23@gmail.com",
+      "phone": "8650599483",
+      "password": "12345678@Ag"
+    }
+  ],
+  "login": [
+    {
+      "id": "4130",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "7943",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "84f9",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "83e3",
+      "email": "amitgoswami06149@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "589c",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "5cea",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "84a5",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "96aa",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "74a6",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "d40d",
+      "email": "agiri8710@gmail.com",
+      "password": "12345678@Agg"
+    },
+    {
+      "id": "f2cb",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "70bf",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "2bc2",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "76d2",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "ae21",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "428c",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "3f63",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "473b",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "34dd",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "0bff",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "58a1",
+      "email": "prachigiri005@gmail.com",
+      "password": "6397212119@Ag"
+    },
+    {
+      "id": "bde5",
+      "email": "prachigiri005@gmail.com",
+      "password": "6397212119@Ag"
+    },
+    {
+      "id": "863f",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "be38",
+      "email": "prachigiri005@gmail.com",
+      "password": "6397212119@Ag"
+    },
+    {
+      "id": "7cf3",
+      "email": "agiri8710@gmail.com",
+      "password": "12345678@Agg"
+    },
+    {
+      "id": "e8be",
+      "email": "agiri8710@gmail.com",
+      "password": "12345678@Agg"
+    },
+    {
+      "id": "0fbf",
+      "email": "mary@gmail.com",
+      "password": "1245678@Ag"
+    },
+    {
+      "id": "fded",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "8030",
+      "email": "agiri8710@gmail.com",
+      "password": "12345678@Agg"
+    },
+    {
+      "id": "0824",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "ec1d",
+      "email": "prachigiri005@gmail.com",
+      "password": "6397212119@Ag"
+    },
+    {
+      "id": "8421",
+      "email": "amgiri1010@gmail.com",
+      "password": "12345678@Ag"
+    }
+  ]
+}

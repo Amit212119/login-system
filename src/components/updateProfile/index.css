@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.formContainer {
+    width: 600px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+
+}
+
+.inputField {
+    height: 28px;
+    width: 560px;
+    border: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: 2px solid orange;
+}
+
+.heading {
+    color: orange;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+
+}
+
+.button {
+    height: 28px;
+    font-size: 20px;
+    font-weight: 400;
+    width: 200px;
+    margin-left: 200px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.paragraph {
+    margin-left: 190px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.errorMessage {
+    color: orange;
+    margin-left: 20px;
+}

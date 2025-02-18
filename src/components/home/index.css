@@ -1,0 +1,22 @@
+.DetailContainer {
+    text-align: center;
+}
+.userDetails {
+    color: orange;
+    margin-left: 20px;
+}
+.btn {
+    height: 28px;
+    width : 200px;
+    background-color: orange;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.link {
+    text-decoration: none;
+    
+}
