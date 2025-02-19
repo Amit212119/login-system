@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loginUserService, registerUserService } from './authService';
-const axios = require('axios');
-
+import { loginUserService, registerUserService, updateUserService } from './authService';
 
 export const registerUser = createAsyncThunk('auth/register', async (formData, { rejectWithValue }) => {
   try {
@@ -13,7 +11,7 @@ export const registerUser = createAsyncThunk('auth/register', async (formData, {
 
 export const loginUser = createAsyncThunk('auth/login', async (formData, { rejectWithValue }) => {
   try {
-   return await loginUserService(formData);
+    return await loginUserService(formData);
   } catch (error) {
     return rejectWithValue(error.message);
   }
@@ -23,22 +21,13 @@ export const logoutUser = createAsyncThunk('auth/logout', async () => {
   localStorage.removeItem('user');
   return null;
 });
-export const updateUser = createAsyncThunk(
-  'auth/updateUser',
-  async (updatedData, { rejectWithValue, getState }) => {
-    try {
-      const { user } = getState().auth; // Get current logged-in user
-      if (!user) return rejectWithValue('User not found');
-
-      const res = await axios.put(`http://localhost:5000/register/${user.id}`, updatedData);
-
-      localStorage.setItem('user', JSON.stringify(res.data)); // Update local storage
-      return res.data;
-    } catch (error) {
-      return rejectWithValue(error.response?.data || 'Update failed');
-    }
+export const updateUser = createAsyncThunk('auth/updateUser', async ({ id, updateData }, { rejectWithValue }) => {
+  try {
+    return await updateUserService({ id, updateData });
+  } catch (error) {
+    return rejectWithValue(error.message);
   }
-);
+});
 
 const authSlice = createSlice({
   name: 'auth',
@@ -56,10 +45,10 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(registerUser.fulfilled, (state, action) => {
-        const {userData, msg} = action.payload;
+        const { userData, msg, isAuth } = action.payload;
         state.isLoading = false;
         state.user = userData;
-        state.isAuthenticated = true;
+        state.isAuthenticated = isAuth;
         state.message = msg;
       })
       .addCase(registerUser.rejected, (state, action) => {
@@ -89,6 +78,7 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+        console.log('add', action);
         state.isLoading = false;
         state.user = action.payload;
       })

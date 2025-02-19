@@ -8,6 +8,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const profile = useSelector((state) => state.auth.user);
      const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+     console.log('home', profile, isAuthenticated);
 
 
      const handleLogout = () => {
@@ -19,12 +20,12 @@ const Home = () => {
    <>
      {isAuthenticated ? (
        <div className='DetailContainer'>
-         <h2>Welcome, {profile.name}</h2>
+         <h2>Welcome, {profile?.name}</h2>
          <p>
-           Email: <span className='userDetails'>{profile.email}</span>
+           Email: <span className='userDetails'>{profile?.email}</span>
          </p>
          <p>
-           Phone: <span className='userDetails'> {profile.phone}</span>
+           Phone: <span className='userDetails'> {profile?.phone}</span>
          </p>
          <div className='btnDiv'>
            <button onClick={handleLogout} className='btn'>Logout</button>

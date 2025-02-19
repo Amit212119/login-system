@@ -17,6 +17,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
    const { isAuthenticated, error: loginError, message } = useSelector((state) => state.auth);
+   console.log('login', isAuthenticated)
 
 
    useEffect(() => {

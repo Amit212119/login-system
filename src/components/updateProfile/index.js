@@ -10,7 +10,7 @@ const UpdateProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
-  console.log('id',user.id);
+  const id = user?.id;
 
   const [updateData, setUpdateData] = useState(user);
 
@@ -55,7 +55,7 @@ const UpdateProfile = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log(updateData)
-      dispatch(updateUser( updateData ));
+      dispatch(updateUser( {id, updateData} ));
       toast.success('Update Successfully', {
         position: 'top-center',
         autoClose: 2000,

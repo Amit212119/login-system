@@ -10,7 +10,7 @@ export const registerUserService = async (userData) => {
     }
 
     const response = await axios.post(API_URL, userData);
-    return response.data;
+    return { isAuth: true, userData: response.data, msg: 'Registration successful !', isErr: false };
 }
 
 export const loginUserService = async (userData) => {
@@ -24,9 +24,10 @@ export const loginUserService = async (userData) => {
     }
 }
 
-export const updateUserService = async ({id, updatedData}) => {
-    console.log(id, updatedData);
-  const response = await axios.put(`${API_URL}/${id}`, updatedData);
+export const updateUserService = async (data) => {
+    const {id, updateData} = data;
+    console.log(id, updateData);
+  const response = await axios.put(`${API_URL}/${id}`, updateData);
   localStorage.setItem('user', JSON.stringify(response.data));
   return response.data;
 };

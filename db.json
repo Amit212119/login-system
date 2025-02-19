@@ -4,15 +4,11 @@
       "id": "d5c1"
     },
     {
-      "id": "eead",
-      "name": "anit Kumar",
-      "email": "amgiri1010@gmail.com",
-      "phone": "8267912231",
-      "password": "12345678@Ag"
+      "id": "eead"
     },
     {
       "id": "78e5",
-      "name": "Amit Goswami",
+      "name": "Amit ",
       "email": "amgiri1010@gmail.com",
       "phone": "7017495652",
       "password": "12345678@Ag"
@@ -86,6 +82,55 @@
       "email": "dfrt23@gmail.com",
       "phone": "8650599483",
       "password": "12345678@Ag"
+    },
+    {
+      "id": "bee4",
+      "name": "Amit mahant ",
+      "email": "mahant123@gmail.com",
+      "phone": "9566754645",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "bfd7",
+      "name": "Jane done",
+      "email": "jane123@gmail.com",
+      "phone": "7017495652",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "0d14",
+      "name": "vansi",
+      "email": "vansi123@gmail.com",
+      "phone": "7500310305",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "cf2d",
+      "name": "Amit Goswami",
+      "email": "sdfg123@gmail.com",
+      "phone": "8650599483",
+      "password": "12345678@Ag"
+    },
+    {
+      "id": "b680",
+      "name": "ritik",
+      "email": "ritik123@gmail.com",
+      "phone": "8650599483",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "5766",
+      "name": "Amit Goswami",
+      "email": "gtyu123@gmail.com",
+      "phone": "7500310305",
+      "password": "123456@Ag"
+    },
+    {
+      "id": "b6c1",
+      "name": "Amit Goswami",
+      "email": "vghn1234@gmail.com",
+      "phone": "8650599483",
+      "password": "123456@Ag"
     }
   ],
   "login": [
