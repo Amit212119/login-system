@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loginUserService, registerUserService, updateUserService } from './authService';
+import { loginUserService, logoutUserService, registerUserService, updateUserService } from './authService';
 
 export const registerUser = createAsyncThunk('auth/register', async (formData, { rejectWithValue }) => {
   try {
@@ -18,16 +18,19 @@ export const loginUser = createAsyncThunk('auth/login', async (formData, { rejec
 });
 
 export const logoutUser = createAsyncThunk('auth/logout', async () => {
-  localStorage.removeItem('user');
+  logoutUserService();
   return null;
 });
-export const updateUser = createAsyncThunk('auth/updateUser', async ({ id, updateData }, { rejectWithValue }) => {
-  try {
-    return await updateUserService({ id, updateData });
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async ({ id, updateData }, { rejectWithValue }) => {
+    try {
+      return await updateUserService({ id, updateData });
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 const authSlice = createSlice({
   name: 'auth',
