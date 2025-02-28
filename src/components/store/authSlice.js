@@ -1,21 +1,32 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loginUserService, logoutUserService, registerUserService, updateUserService } from './authService';
+import {
+  loginUserService,
+  logoutUserService,
+  registerUserService,
+  updateUserService,
+} from './authService';
 
-export const registerUser = createAsyncThunk('auth/register', async (formData, { rejectWithValue }) => {
-  try {
-    return await registerUserService(formData);
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const registerUser = createAsyncThunk(
+  'auth/register',
+  async (formData, { rejectWithValue }) => {
+    try {
+      return await registerUserService(formData);
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const loginUser = createAsyncThunk('auth/login', async (formData, { rejectWithValue }) => {
-  try {
-    return await loginUserService(formData);
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const loginUser = createAsyncThunk(
+  'auth/login',
+  async (formData, { rejectWithValue }) => {
+    try {
+      return await loginUserService(formData);
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 export const logoutUser = createAsyncThunk('auth/logout', async () => {
   logoutUserService();

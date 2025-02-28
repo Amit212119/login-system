@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, updateUser } from '../store/authSlice';
+import { updateUser } from '../store/authSlice';
 
 const UpdateProfile = () => {
   const dispatch = useDispatch();
@@ -54,8 +54,8 @@ const UpdateProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log(updateData)
-      dispatch(updateUser( {id, updateData} ));
+      console.log(updateData);
+      dispatch(updateUser({ id, updateData }));
       toast.success('Update Successfully', {
         position: 'top-center',
         autoClose: 2000,
@@ -67,44 +67,38 @@ const UpdateProfile = () => {
   };
   return (
     <>
-      <div className='container'>
-        <form
-          onSubmit={handleSubmit}
-          className='formContainer'>
-          <p className='heading'>Update Details</p>
-          <div>
+      <div className="updateFormContainer">
+        <form onSubmit={handleSubmit} className="formContainer">
+          <p className="heading">Update Details</p>
+          <div className="updateInputFields">
             <input
-              type='text'
-              className='inputField'
-              placeholder='Full Name'
-              name='name'
+              type="text"
+              className="inputField"
+              placeholder="Full Name"
+              name="name"
               onChange={handleChange}
               value={updateData.name}
             />
-            {errors.name && <p className='errorMessage'>{errors.name}</p>}
+            {errors.name && <p className="errorMessage">{errors.name}</p>}
           </div>
           <div>
             <input
-              type='number'
-              className='inputField'
-              placeholder='Phone No.'
-              name='phone'
+              type="number"
+              className="inputField"
+              placeholder="Phone No."
+              name="phone"
               onChange={handleChange}
               value={updateData.phone}
             />
-            {errors.phone && <p className='errorMessage'>{errors.phone}</p>}
+            {errors.phone && <p className="errorMessage">{errors.phone}</p>}
           </div>
-          <div>
-            <button
-              type='submit'
-              className='button'>
+          <div className="btnGroup">
+            <button type="submit" className="button">
               Update
             </button>
-            <p className='paragraph'>
-              You don't want to Update ?
-              <Link
-                to='/'
-                className='link'>
+            <p className="paragraph">
+              You don&apos;t want to Update ?
+              <Link to="/" className="link">
                 Home
               </Link>
             </p>

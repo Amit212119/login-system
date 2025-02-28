@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -72,7 +73,9 @@ describe('Registration Component', () => {
 
     expect(await screen.findByText('Name is required')).toBeInTheDocument();
     expect(await screen.findByText('Email is required')).toBeInTheDocument();
-    expect(await screen.findByText('Phone number is required')).toBeInTheDocument();
+    expect(
+      await screen.findByText('Phone number is required')
+    ).toBeInTheDocument();
     expect(await screen.findByText('Password is required')).toBeInTheDocument();
   });
 
@@ -108,10 +111,18 @@ describe('Registration Component', () => {
       </Provider>
     );
 
-    fireEvent.change(screen.getByPlaceholderText('Full Name'), { target: { value: 'John Doe' } });
-    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'john@example.com' } });
-    fireEvent.change(screen.getByPlaceholderText('Phone No.'), { target: { value: '1234567890' } });
-    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'Pass@123' } });
+    fireEvent.change(screen.getByPlaceholderText('Full Name'), {
+      target: { value: 'John Doe' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Email'), {
+      target: { value: 'john@example.com' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Phone No.'), {
+      target: { value: '1234567890' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Password'), {
+      target: { value: 'Pass@123' },
+    });
 
     fireEvent.click(screen.getByRole('button', { name: /sign up/i }));
 

@@ -1,9 +1,10 @@
+import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import Home from '../index.js';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
-import {  logoutUser } from '../../store/authSlice';
+import { logoutUser } from '../../store/authSlice';
 
 const mockStore = configureStore([]);
 
@@ -20,16 +21,20 @@ describe('Home components', () => {
         user: { name: '', email: '', phone: '' },
       },
     });
-    
+
     store.dispatch = jest.fn();
-     jest.spyOn(localStorage, 'removeItem');
+    jest.spyOn(localStorage, 'removeItem');
   });
 
   it('should display user when authenticated', () => {
     store = mockStore({
       auth: {
         isAuthenticated: true,
-        user: { name: 'amit', email: 'amgiri1010@gmail.com', phone: '6397212119' },
+        user: {
+          name: 'amit',
+          email: 'amgiri1010@gmail.com',
+          phone: '6397212119',
+        },
       },
     });
     render(
@@ -39,7 +44,9 @@ describe('Home components', () => {
         </MemoryRouter>
       </Provider>
     );
-    expect(screen.getByRole('heading', { name: /welcome, amit/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /welcome, amit/i })
+    ).toBeInTheDocument();
     expect(screen.getByText('amgiri1010@gmail.com')).toBeInTheDocument();
     expect(screen.getByText('6397212119')).toBeInTheDocument();
   });
@@ -47,24 +54,26 @@ describe('Home components', () => {
     store = mockStore({
       auth: {
         isAuthenticated: true,
-        user: { name: 'amit', email: 'amgiri1010@gmail.com', phone: '6397212119' },
+        user: {
+          name: 'amit',
+          email: 'amgiri1010@gmail.com',
+          phone: '6397212119',
+        },
       },
-      
     });
-      render(
-        <Provider store={store}>
-          <MemoryRouter>
-            <Home />
-          </MemoryRouter>
-        </Provider>
-      );
-      const btn = screen.getByRole('button', { name: /logout/i });
-      fireEvent.click(btn);
-     await waitFor(() => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      </Provider>
+    );
+    const btn = screen.getByRole('button', { name: /logout/i });
+    fireEvent.click(btn);
+    await waitFor(() => {
       expect(store.dispatch).toHaveBeenCalledWith(logoutUser());
     });
 
-    expect(localStorage.removeItem).toHaveBeenCalledWith('loginUser'); 
-     
-  })
+    expect(localStorage.removeItem).toHaveBeenCalledWith('loginUser');
+  });
 });

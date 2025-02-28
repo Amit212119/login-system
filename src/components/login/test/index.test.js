@@ -1,3 +1,4 @@
+import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import Login from '../index';
 import { Provider } from 'react-redux';
@@ -11,12 +12,12 @@ jest.mock('../../store/authSlice', () => ({
 }));
 
 jest.mock('react-toastify', () => ({
-    toast : {
+  toast: {
     error: jest.fn(),
     success: jest.fn(),
-    },
-    ToastContainer: () => <div />,
-}))
+  },
+  ToastContainer: () => <div />,
+}));
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -79,11 +80,11 @@ describe('login components', () => {
         </MemoryRouter>
       </Provider>
     );
-    const emailInput = screen.getByPlaceholderText("Email");
-    fireEvent.change(emailInput, { target: {value: 'example123@gmail.com'}})
+    const emailInput = screen.getByPlaceholderText('Email');
+    fireEvent.change(emailInput, { target: { value: 'example123@gmail.com' } });
     expect(emailInput.value).toBe('example123@gmail.com');
-    const passwordInput = screen.getByPlaceholderText("Password");
-    fireEvent.change(passwordInput, { target: {value: '123456@Ag'}})
+    const passwordInput = screen.getByPlaceholderText('Password');
+    fireEvent.change(passwordInput, { target: { value: '123456@Ag' } });
     expect(passwordInput.value).toBe('123456@Ag');
   });
   test('should dispatch loginUser on valid form details', async () => {
@@ -94,22 +95,22 @@ describe('login components', () => {
         </MemoryRouter>
       </Provider>
     );
-    const emailInput =  screen.getByPlaceholderText('Email');
-    fireEvent.change(emailInput, {target: {value: 'exam123@gmail.com'}});
-    const passwordInput =  screen.getByPlaceholderText('Password');
-    fireEvent.change(passwordInput, {target: {value: '123456@Ag'}});
-    fireEvent.click(screen.getByRole('button', {name: 'Submit'}));
+    const emailInput = screen.getByPlaceholderText('Email');
+    fireEvent.change(emailInput, { target: { value: 'exam123@gmail.com' } });
+    const passwordInput = screen.getByPlaceholderText('Password');
+    fireEvent.change(passwordInput, { target: { value: '123456@Ag' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     await waitFor(() => {
-         expect(store.dispatch).toHaveBeenCalledWith(
-                loginUser({
-                  email: 'exam123@gmail.com',
-                  password: '123456@Ag',
-                })
-              );
-    })
+      expect(store.dispatch).toHaveBeenCalledWith(
+        loginUser({
+          email: 'exam123@gmail.com',
+          password: '123456@Ag',
+        })
+      );
+    });
   });
-  test('show error when login failed',async () => {
+  test('show error when login failed', async () => {
     store = mockStore({
       auth: {
         isAuthenticated: false,
@@ -124,12 +125,11 @@ describe('login components', () => {
       </Provider>
     );
     await waitFor(() => {
-        expect(toast.error).toHaveBeenCalledWith('Invalid Credentials', {
-          position: 'top-center',
-          autoClose: 2000,
-        });
-    })
-
+      expect(toast.error).toHaveBeenCalledWith('Invalid Credentials', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
+    });
   });
   test('should disable the submit button when `isLoading` is true', () => {
     store = mockStore({
@@ -151,4 +151,3 @@ describe('login components', () => {
     expect(screen.getByRole('button', { name: /submit/i })).toBeDisabled();
   });
 });
-  

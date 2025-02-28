@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './index.css';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { loginUser } from '../store/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
@@ -16,19 +15,21 @@ const Login = () => {
   const [error, setError] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
-   const { isAuthenticated, error: loginError, message } = useSelector((state) => state.auth);
-   console.log('login', isAuthenticated)
+  const {
+    isAuthenticated,
+    error: loginError,
+    message,
+  } = useSelector((state) => state.auth);
+  console.log('login', isAuthenticated);
 
-
-   useEffect(() => {
-     if (isAuthenticated) {
-       toast.success(message, { position: 'top-center', autoClose: 1000 });
-       setTimeout(() => navigate('/'), 1000);
-     } else if (loginError) {
-       toast.error(loginError, { position: 'top-center', autoClose: 2000 });
-     }
-   }, [isAuthenticated, loginError, message, navigate]);
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      toast.success(message, { position: 'top-center', autoClose: 1000 });
+      setTimeout(() => navigate('/'), 1000);
+    } else if (loginError) {
+      toast.error(loginError, { position: 'top-center', autoClose: 2000 });
+    }
+  }, [isAuthenticated, loginError, message, navigate]);
 
   const loginValidation = () => {
     let errors = {};
@@ -59,105 +60,51 @@ const Login = () => {
     setError((prevErr) => ({ ...prevErr, [name]: '' }));
   };
 
-  // const handleSubmit = async (e) => {
-    
-  //   e.preventDefault();
-  //   console.log('type',errorType);
-  //   console.log('message',message);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (loginValidation()) {
+      dispatch(loginUser(loginData));
+    }
+  };
+  const { isLoading } = useSelector((state) => state.auth);
 
-  //   if (loginValidation()) {
-  //     try {
-  //       dispatch(loginUser(loginData));
-  //       if (!errorType) {
-  //         setLoginData(initialValue);
-  //         toast.success(message, {
-  //           position: 'top-center',
-  //           autoClose: 1000,
-  //         });
-  //         setTimeout(() => {
-  //           navigate('/');
-  //         }, 1000);
-  //       } else {
-  //         toast.error(message, {
-  //           position: 'top-center',
-  //           autoClose: 2000,
-  //         });
-  //         setLoginData(initialValue);
-  //       }
-  //       // const res = await axios.get('http://localhost:5000/register');
-  //       // const loginCredential = res.data.find((item) => item.email === loginData.email);
-  //       // if (loginCredential.email === loginData.email && loginCredential.password === loginData.password) {
-  //       //   localStorage.setItem('loginUser', JSON.stringify(loginCredential));
-  //       //   console.log('auth', auth);
-  //       //    dispatch(loginUser(loginData));
-  //       //   setLoginData(initialValue);
-  //       //   toast.success('Login Successfully', {
-  //       //     position: 'top-center',
-  //       //     autoClose: 1000,
-  //       //   });
-  //       //   setTimeout(() => {
-  //       //     navigate('/');
-  //       //   }, 1000);
-  //       // } else {
-  //       //    toast.error('Invalid credentials! Please try again.', {
-  //       //     position:'top-center',
-  //       //     autoClose: 2000,
-  //       //    });
-  //       //    setLoginData(initialValue);
-  //       // }
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  // };
- const handleSubmit = (e) => {
-   e.preventDefault();
-   if (loginValidation()) {
-     dispatch(loginUser(loginData));
-   }
- };
-   const { isLoading } = useSelector((state) => state.auth);
- 
   return (
-    <div className='container'>
-      <form
-        className='formContainer'
-        onSubmit={handleSubmit}>
-        <p className='heading'>Login</p>
-        <div>
+    <div className="container">
+      <form className="loginFormContainer" onSubmit={handleSubmit}>
+        <p className="heading">Login</p>
+        <div className="loginInputField">
           <input
-            type='email'
-            className='inputField'
-            placeholder='Email'
-            name='email'
+            type="email"
+            className="loginFormField"
+            placeholder="Email"
+            name="email"
             onChange={handleChange}
             value={loginData.email}
           />
-          {error && <p className='errorMessage'>{error.email}</p>}
+          {error && <p className="errorMessage">{error.email}</p>}
         </div>
-        <div>
+        <div className="loginInputField">
           <input
-            type='password'
-            className='inputField'
-            placeholder='Password'
-            name='password'
+            type="password"
+            className="loginFormField"
+            placeholder="Password"
+            name="password"
             onChange={handleChange}
             value={loginData.password}
           />
-          {error && <p className='errorMessage'>{error.password}</p>}
+          {error && <p className="errorMessage">{error.password}</p>}
         </div>
         <div>
           <button
-            type='submit'
+            type="submit"
             disabled={isLoading}
-            className='button'>
-            {isLoading ?'Submitting': 'Submit'}
+            className="loginSubmitButton"
+          >
+            {isLoading ? 'Submitting' : 'Submit'}
           </button>
-          <p className='paragraph'>
-            Don't have an account?{' '}
-            <Link
-              to='/signup'
-              className='link'>
+          <p className="loginParagraph">
+            Don&apos;t have an account?
+            <Link to="/signup" className="link">
               Sign up
             </Link>
           </p>

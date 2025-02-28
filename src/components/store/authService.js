@@ -10,15 +10,27 @@ export const registerUserService = async (userData) => {
   }
 
   const response = await axios.post(API_URL, userData);
-  return { isAuth: true, userData: response.data, msg: 'Registration successful !', isErr: false };
+  return {
+    isAuth: true,
+    userData: response.data,
+    msg: 'Registration successful !',
+    isErr: false,
+  };
 };
 
 export const loginUserService = async (userData) => {
   const res = await axios.get(API_URL);
-  const loginCredential = res.data.find((item) => item.email === userData.email);
+  const loginCredential = res.data.find(
+    (item) => item.email === userData.email
+  );
   if (loginCredential.password === userData.password) {
     localStorage.setItem('user', JSON.stringify(loginCredential));
-    return { isAuth: true, userData: loginCredential, msg: 'Login success', isErr: false };
+    return {
+      isAuth: true,
+      userData: loginCredential,
+      msg: 'Login success',
+      isErr: false,
+    };
   } else {
     throw new Error('Invalid credentials');
   }

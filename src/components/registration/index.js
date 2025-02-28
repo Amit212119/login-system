@@ -16,7 +16,11 @@ const Registration = () => {
     phone: '',
     password: '',
   };
-  const { isAuthenticated, error: signupError, message } = useSelector((state) => state.auth);
+  const {
+    isAuthenticated,
+    error: signupError,
+    message,
+  } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -25,7 +29,7 @@ const Registration = () => {
     } else if (signupError) {
       toast.error(signupError, { position: 'top-center', autoClose: 2000 });
     }
-  }, [isAuthenticated, signupError, message,navigate]);
+  }, [isAuthenticated, signupError, message, navigate]);
 
   const [signupData, setSignupData] = useState(initialValue);
 
@@ -89,74 +93,76 @@ const Registration = () => {
   const { isLoading } = useSelector((state) => state.auth);
   return (
     <>
-      <div className='container'>
-        <form
-          onSubmit={handleSubmit}
-          className='formContainer'>
-          <p className='heading'>Sign Up</p>
-          <div>
+      <div className="parentContainer">
+        <div className="imageContainer">
+          <img
+            alt="registration"
+            src="registration-jpg.jpg"
+            className="image"
+          />
+        </div>
+        <form onSubmit={handleSubmit} className="signUpForm">
+          <p className="heading">Sign Up</p>
+          <div className="signUpInputContainer">
             <input
-              type='text'
-              className='inputField'
-              placeholder='Full Name'
-              name='name'
+              type="text"
+              className="signUpInputField"
+              placeholder="Full Name"
+              name="name"
               onChange={handleChange}
               value={signupData.name}
             />
-            {errors.name && <p className='errorMessage'>{errors.name}</p>}
+            {errors.name && <p className="errorMessage">{errors.name}</p>}
           </div>
-          <div>
+          <div className="signUpInputContainer">
             <input
-              type='email'
-              className='inputField'
-              placeholder='Email'
-              name='email'
+              type="email"
+              className="signUpInputField"
+              placeholder="Email"
+              name="email"
               onChange={handleChange}
               value={signupData.email}
             />
-            {errors.email && <p className='errorMessage'>{errors.email}</p>}
+            {errors.email && <p className="errorMessage">{errors.email}</p>}
           </div>
-          <div>
+          <div className="signUpInputContainer">
             <input
-              type='number'
-              className='inputField'
-              placeholder='Phone No.'
-              name='phone'
+              type="number"
+              className="signUpInputField"
+              placeholder="Phone No."
+              name="phone"
               onChange={handleChange}
               value={signupData.phone}
             />
-            {errors.phone && <p className='errorMessage'>{errors.phone}</p>}
+            {errors.phone && <p className="errorMessage">{errors.phone}</p>}
           </div>
-          <div>
+          <div className="signUpInputContainer">
             <input
-              type='password'
-              className='inputField'
-              placeholder='Password'
-              name='password'
+              type="password"
+              className="signUpInputField"
+              placeholder="Password"
+              name="password"
               onChange={handleChange}
               value={signupData.password}
             />
-            {errors.password && <p className='errorMessage'>{errors.password}</p>}
+            {errors.password && (
+              <p className="errorMessage">{errors.password}</p>
+            )}
           </div>
-          <div>
-            <button
-              type='submit'
-              disabled={isLoading}
-              className='button'>
+          <div className="btnGroup">
+            <button type="submit" disabled={isLoading} className="signButton">
               {isLoading ? 'Signing up...' : 'Sign Up'}
             </button>
-            <p className='paragraph'>
+            <p className="signParagraph">
               Already have an account?
-              <Link
-                to='/login'
-                className='link'>
+              <Link to="/login" className="link">
                 Login
               </Link>
             </p>
           </div>
         </form>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </>
   );
 };

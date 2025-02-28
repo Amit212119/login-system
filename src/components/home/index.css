@@ -1,22 +1,215 @@
 .DetailContainer {
-    text-align: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 150px;
 }
 .userDetails {
-    color: orange;
-    margin-left: 20px;
+  color: white;
 }
-.btn {
-    height: 28px;
-    width : 200px;
-    background-color: orange;
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  overflow: hidden;
+}
+
+li {
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: 22px;
+  font-weight: 500;
+}
+.homeSection {
+  background-image: url('./../../../public/image.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  opacity: 0.8;
+  overflow: hidden;
+}
+.profileButton {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.loginButton {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: orange;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  position: absolute;
+  right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  z-index: 1;
+}
+.logoutButton {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.updateProfile {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: orange;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.nameHeading {
+  font-size: 80px;
+  font-weight: bolder;
+}
+.name {
+  color: orange;
+  font-size: 70px;
+}
+.userInfo {
+  font-size: 40px;
+  color: orange;
+}
+.menu-toggle {
+  display: none;
+}
+.mobileNav {
+  display: none;
+}
+
+.navDetails {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mobileButton {
+  display: none;
+}
+@media (max-width: 480px) {
+  .menu-toggle {
+    display: block;
+    margin-left: 150px;
     border: none;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.link {
+  }
+  .navDetails {
+    display: none;
+  }
+  .profileButton {
+    display: none;
+  }
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 72px;
+    left: 0px;
+    width: 100%;
+    background: white;
+    text-align: start;
+    z-index: 1;
+  }
+  li {
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .mobileButton {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 190px;
+    left: 0px;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .mobileUpdateProfile,
+  .mobileLogoutButton {
+    border: none;
+    font-size: 20px;
+    background-color: orange;
+    padding: 10px 0px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .mobileUpdateProfile {
     text-decoration: none;
-    
+    color: black;
+  }
+  .nameHeading {
+    font-size: 40px;
+    font-weight: bolder;
+  }
+  .mobileLoginButton {
+    border: none;
+    font-size: 20px;
+    background-color: orange;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px 40px;
+    border-radius: 8px;
+  }
+  .mobileLoginButtonDiv {
+    position: absolute;
+    top: 190px;
+    left: 0px;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .loginButton {
+    display: none;
+  }
+
+  .name {
+    color: orange;
+    font-size: 35px;
+  }
+
+  .userInfo {
+    font-size: 20px;
+    color: orange;
+  }
 }
